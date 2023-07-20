@@ -32,7 +32,9 @@
     $listItemCounter = 1;
 
     while($importFile = readdir($importFolder)){
-        if(file_exists($importFile) && !is_dir($importFile) && $importFile != '.' && $importFile != '..' && $importFile != $workingFileName)
+        $element = pathinfo($importFile);
+        //echo 'nom => ' . $element['filename'] . '<br>' . 'extension => ' . $element['extension'];
+        if(file_exists($importFile) && !is_dir($importFile) && $importFile != '.' && $importFile != '..' && $importFile != $workingFileName && $element['extension'] == "webloc")
         {
             // Affichage des fichiers à convertir
             //echo $separator;
